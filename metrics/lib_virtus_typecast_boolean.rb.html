@@ -1,0 +1,46 @@
+<html><head><style>table { background: #fff; color: #000; }
+.ruby .normal { color: #000; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #b1713d; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #00f; }
+.ruby .string { color: #4a4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #000; }
+.ruby .constant { color: #b1713d; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #f84; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }</style></head><body><table cellpadding='0' cellspacing='0' class='ruby'><tr><td valign='top'><small>1</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line1'><pre><span class="keyword">module </span><span class="module">Virtus</span>
+</pre></a></td></tr><tr><td valign='top'><small>2</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line2'><pre>  <span class="keyword">module </span><span class="module">Typecast</span>
+</pre></a></td></tr><tr><td valign='top'><small>3</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line3'><pre>    <span class="comment"># Typecast defined values into true or false.</span>
+</pre></a></td></tr><tr><td valign='top'><small>4</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line4'><pre>    <span class="comment"># See TRUE_VALUES and FALSE_VALUES constants for a reference.</span>
+</pre></a></td></tr><tr><td valign='top'><small>5</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line5'><pre>    <span class="keyword">class </span><span class="class">Boolean</span>
+</pre></a></td></tr><tr><td valign='top'><small>6</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line6'><pre>      <span class="constant">TRUE_VALUES</span>  <span class="punct">=</span> <span class="punct">[</span> <span class="number">1</span><span class="punct">,</span> <span class="punct">'</span><span class="string">1</span><span class="punct">',</span> <span class="punct">'</span><span class="string">t</span><span class="punct">',</span> <span class="punct">'</span><span class="string">T</span><span class="punct">',</span> <span class="punct">'</span><span class="string">true</span><span class="punct">',</span>  <span class="punct">'</span><span class="string">TRUE</span><span class="punct">'</span>  <span class="punct">].</span><span class="ident">freeze</span>
+</pre></a></td></tr><tr><td valign='top'><small>7</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line7'><pre>      <span class="constant">FALSE_VALUES</span> <span class="punct">=</span> <span class="punct">[</span> <span class="number">0</span><span class="punct">,</span> <span class="punct">'</span><span class="string">0</span><span class="punct">',</span> <span class="punct">'</span><span class="string">f</span><span class="punct">',</span> <span class="punct">'</span><span class="string">F</span><span class="punct">',</span> <span class="punct">'</span><span class="string">false</span><span class="punct">',</span> <span class="punct">'</span><span class="string">FALSE</span><span class="punct">'</span> <span class="punct">].</span><span class="ident">freeze</span>
+</pre></a></td></tr><tr><td valign='top'><small>8</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line8'><pre>
+</pre></a></td></tr><tr><td valign='top'><small>9</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line9'><pre>      <span class="constant">BOOLEAN_MAP</span>  <span class="punct">=</span> <span class="constant">Hash</span><span class="punct">[</span><span class="constant">TRUE_VALUES</span><span class="punct">.</span><span class="ident">product</span><span class="punct">([</span> <span class="constant">true</span> <span class="punct">])</span> <span class="punct">+</span> <span class="constant">FALSE_VALUES</span><span class="punct">.</span><span class="ident">product</span><span class="punct">([</span> <span class="constant">false</span> <span class="punct">])</span> <span class="punct">].</span><span class="ident">freeze</span>
+</pre></a></td></tr><tr><td valign='top'><small>10</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line10'><pre>
+</pre></a></td></tr><tr><td valign='top'><small>11</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line11'><pre>      <span class="comment"># Typecast value to TrueClass or FalseClass</span>
+</pre></a></td></tr><tr><td valign='top'><small>12</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line12'><pre>      <span class="comment">#</span>
+</pre></a></td></tr><tr><td valign='top'><small>13</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line13'><pre>      <span class="comment"># @example</span>
+</pre></a></td></tr><tr><td valign='top'><small>14</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line14'><pre>      <span class="comment">#   Virtus::Typecast::Boolean.call('T') # =&gt; true</span>
+</pre></a></td></tr><tr><td valign='top'><small>15</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line15'><pre>      <span class="comment">#   Virtus::Typecast::Boolean.call('F') # =&gt; false</span>
+</pre></a></td></tr><tr><td valign='top'><small>16</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line16'><pre>      <span class="comment">#</span>
+</pre></a></td></tr><tr><td valign='top'><small>17</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line17'><pre>      <span class="comment"># @param [Integer, String]</span>
+</pre></a></td></tr><tr><td valign='top'><small>18</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line18'><pre>      <span class="comment">#</span>
+</pre></a></td></tr><tr><td valign='top'><small>19</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line19'><pre>      <span class="comment"># @return [TrueClass, FalseClass]</span>
+</pre></a></td></tr><tr><td valign='top'><small>20</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line20'><pre>      <span class="comment">#</span>
+</pre></a></td></tr><tr><td valign='top'><small>21</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line21'><pre>      <span class="comment"># @api public</span>
+</pre></a></td></tr><tr><td valign='top'><small>22</small></td><td valign='top'><ul><li>Score of 1.20 &raquo; flog</li></ul></td><td valign='top'><a name='line22'><pre>      <span class="keyword">def </span><span class="method">self.call</span><span class="punct">(</span><span class="ident">value</span><span class="punct">)</span>
+</pre></a></td></tr><tr><td valign='top'><small>23</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line23'><pre>        <span class="constant">BOOLEAN_MAP</span><span class="punct">.</span><span class="ident">fetch</span><span class="punct">(</span><span class="ident">value</span><span class="punct">,</span> <span class="ident">value</span><span class="punct">)</span>
+</pre></a></td></tr><tr><td valign='top'><small>24</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line24'><pre>      <span class="keyword">end</span>
+</pre></a></td></tr><tr><td valign='top'><small>25</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line25'><pre>    <span class="keyword">end</span> <span class="comment"># Boolean</span>
+</pre></a></td></tr><tr><td valign='top'><small>26</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line26'><pre>  <span class="keyword">end</span> <span class="comment"># Typecast</span>
+</pre></a></td></tr><tr><td valign='top'><small>27</small></td><td valign='top'>&nbsp;</td><td valign='top'><a name='line27'><pre><span class="keyword">end</span> <span class="comment"># Virtus</span>
+</pre></a></td></tr><table></body></html>
