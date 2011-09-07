@@ -6,6 +6,10 @@ group :development do
   gem 'rspec',     '~> 2.6.0'
 end
 
+group :integration do
+  gem 'dm-validations', '~> 1.1.0', :git => 'https://github.com/emmanuel/dm-validations.git', :branch => 'feature/reorganize'
+end
+
 group :metrics do
   gem 'flay',      '~> 1.4.2'
   gem 'flog',      '~> 2.5.1'
