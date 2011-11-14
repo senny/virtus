@@ -41,7 +41,13 @@ module Virtus
       #
       # @api private
       def evaluate(instance)
-        callable? ? call(instance) : value
+        if callable?
+          call(instance)
+        elsif method_symbol?
+          send_method(instance)
+        else
+          value
+        end
       end
 
     private
@@ -57,6 +63,17 @@ module Virtus
         value.call(instance, attribute)
       end
 
+      # Evaluates a method_symbol value
+      #
+      # @param [Object]
+      #
+      # @return [Object] evaluated value
+      #
+      # @api private
+      def send_method(instance)
+        instance.send value
+      end
+
       # Returns if the value is callable
       #
       # @return [TrueClass,FalseClass]
@@ -64,6 +81,15 @@ module Virtus
       # @api private
       def callable?
         value.respond_to?(:call)
+      end
+
+      # Returns if the value is a method_symbol
+      #
+      # @return [TrueClass,FalseClass]
+      #
+      # @api private
+      def method_symbol?
+        value.is_a?(Symbol)
       end
 
     end # class DefaultValue

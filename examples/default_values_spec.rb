@@ -9,12 +9,14 @@ class Page
   attribute :secret,       Boolean
 
   attribute :published,    Boolean, :accessor => :private
-  attribute :editor_title, String, :default => lambda { |post, attribute|
-    post.published? ? post.title : "UNPUBLISHED: #{post.title}"
-  }
+  attribute :editor_title, String, :default => :default_editor_title
 
   def initialize(published = false)
     @published = published
+  end
+
+  def default_editor_title
+    published? ? title : "UNPUBLISHED: #{title}"
   end
 end
 
